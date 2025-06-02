@@ -1,6 +1,8 @@
 package shapes;
 
-public class TriangularPrism
+import utilities.GeometricShapeADT;
+
+public class TriangularPrism implements GeometricShapeADT
 {
 
 }

@@ -1,6 +1,10 @@
 package shapes;
 
-public class Cylinder
+import utilities.GeometricShapeADT;
+
+import java.awt.*;
+
+public class Cylinder implements GeometricShapeADT
 {
 
 }

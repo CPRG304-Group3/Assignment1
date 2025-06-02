@@ -1,6 +1,8 @@
 package shapes;
 
-public class Pyramid
+import utilities.GeometricShapeADT;
+
+public class Pyramid implements GeometricShapeADT
 {
 
 }

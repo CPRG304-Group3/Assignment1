@@ -1,6 +1,9 @@
 package shapes;
 
-public class Cone
+import utilities.GeometricShapeADT;
+import java.awt.*;
+
+public class Cone implements GeometricShapeADT
 {
 
 }

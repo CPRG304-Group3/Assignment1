@@ -1,6 +1,8 @@
 package shapes;
 
-public class SquarePrism
+import utilities.GeometricShapeADT;
+
+public class SquarePrism implements GeometricShapeADT
 {
 
 }

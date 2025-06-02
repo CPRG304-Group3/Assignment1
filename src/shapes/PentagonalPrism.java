@@ -1,6 +1,8 @@
 package shapes;
 
-public class PentagonalPrism
+import utilities.GeometricShapeADT;
+
+public class PentagonalPrism implements GeometricShapeADT
 {
 
 }
