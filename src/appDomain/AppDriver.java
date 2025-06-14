@@ -5,21 +5,64 @@ public class AppDriver
 
 	public static void main( String[] args )
 	{
-		// TODO Auto-generated method stub
+		String filename;
+		char compareBy;
+		char sortingAlgorithm;
 
-		// refer to demo001 BasicFileIO.java for a simple example on how to
-		// read data from a text file
+		if (args.length != 3){
+			System.out.println("You need to pass 3 arguments (T, F & S)");
+			System.exit(0);
+		}
 
-		// refer to demo01 Test.java for an example on how to parse command
-		// line arguments and benchmarking tests
+		if (args[0].length() <= 3 || args[1].length() <= 2 || args[2].length() <= 2){
+			System.out.println("You need to pass data with each argument");
+			System.exit(1);
+		}
 
-		// refer to demo02 Student.java for comparable implementation, and
-		// NameCompare.java or GradeCompare for comparator implementations
+		switch (args[0].charAt(1)){
+			case 'T', 't' :
+				compareBy = args[0].charAt(2);
+				break;
+			case 'F', 'f' :
+				filename = args[0].substring(2);
+				break;
+			case 'S', 's':
+				sortingAlgorithm =  args[0].charAt(2);
+				break;
+			default :
+				System.out.println("You have entered an unsupported argument for this program");
+				System.exit(2);
+		}
 
-		// refer to demo02 KittySort.java on how to use a custom sorting
-		// algorithm on a list of comparables to sort using either the
-		// natural order (comparable) or other orders (comparators)
+		switch (args[1].charAt(1)){
+			case 'T', 't' :
+				compareBy = args[1].charAt(2);
+				break;
+			case 'F', 'f' :
+				filename = args[1].substring(2);
+				break;
+			case 'S', 's':
+				sortingAlgorithm =  args[1].charAt(2);
+				break;
+			default :
+				System.out.println("You have entered an unsupported argument for this program");
+				System.exit(3);
+		}
 
+		switch (args[2].charAt(1)){
+			case 'T', 't' :
+				compareBy = args[2].charAt(2);
+				break;
+			case 'F', 'f' :
+				filename = args[2].substring(2);
+				break;
+			case 'S', 's':
+				sortingAlgorithm =  args[2].charAt(2);
+				break;
+			default :
+				System.out.println("You have entered an unsupported argument for this program");
+				System.exit(4);
+		}
 
 	}
 
