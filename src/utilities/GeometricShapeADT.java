@@ -1,4 +1,13 @@
 package utilities;
 
-public interface GeometricShapeADT {
+public abstract class GeometricShapeADT {
+    private double height;
+
+    protected GeometricShapeADT() {
+        this.height = 5.0;
+    }
+
+    abstract public double calcVolume();
+
+    abstract public double calcBaseArea();
 }
