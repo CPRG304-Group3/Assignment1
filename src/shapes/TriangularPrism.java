@@ -4,24 +4,31 @@ import utilities.GeometricShapeADT;
 
 public class TriangularPrism extends GeometricShapeADT {
     private double side;
-    private double height;
+
+    public double getSide() {
+        return this.side;
+    }
+
+    public void setSide(double side) {
+        this.side = side;
+    }
 
     public TriangularPrism() {
         super();
     }
 
     public TriangularPrism(double side, double height) {
-        this.side = side;
-        this.height = height;
+        setSide(side);
+        setHeight(height);
     }
 
     @Override
     public double calcBaseArea() {
-        return (Math.pow(this.side, 2) * Math.sqrt(3.0))/4.0;
+        return (Math.pow(getSide(), 2) * Math.sqrt(3.0))/4.0;
     }
 
     @Override
     public double calcVolume() {
-        return calcBaseArea() * this.height;
+        return calcBaseArea() * getHeight();
     }
 }

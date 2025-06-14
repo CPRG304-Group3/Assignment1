@@ -4,24 +4,31 @@ import utilities.GeometricShapeADT;
 
 public class Pyramid extends GeometricShapeADT {
     private double side;
-    private double height;
+
+    public double getSide() {
+        return this.side;
+    }
+
+    public void setSide(double side) {
+        this.side = side;
+    }
 
     public Pyramid() {
         super();
     }
 
     public Pyramid(double side, double height) {
-        this.side = side;
-        this.height = height;
+        setSide(side);
+        setHeight(height);
     }
 
     @Override
     public double calcBaseArea() {
-        return Math.pow(this.side, 2);
+        return Math.pow(getSide(), 2);
     }
 
     @Override
     public double calcVolume() {
-        return (Math.pow(this.side, 2) * this.height)/3.0;
+        return (Math.pow(getSide(), 2) * getHeight())/3.0;
     }
 }

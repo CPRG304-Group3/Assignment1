@@ -1,28 +1,34 @@
 package shapes;
 
 import utilities.GeometricShapeADT;
-import java.awt.*;
 
 public class Cone extends GeometricShapeADT {
     private double radius;
-    private double height;
+
+    public double getRadius() {
+        return this.radius;
+    }
+
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
 
     public Cone() {
         super();
     }
 
     public Cone(double height, double radius) {
-        this.height = height;
-        this.radius = radius;
+        setHeight(height);
+        setRadius(radius);
     }
 
     @Override
     public double calcBaseArea() {
-        return (Math.PI * Math.pow(this.radius, 2));
+        return (Math.PI * Math.pow(getRadius(), 2));
     }
 
     @Override
     public double calcVolume() {
-        return ((Math.PI * Math.pow(this.radius, 2)) * this.height)/3.0;
+        return ((Math.PI * Math.pow(getRadius(), 2)) * this.getHeight())/3.0;
     }
 }

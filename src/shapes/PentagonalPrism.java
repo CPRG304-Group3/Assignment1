@@ -4,24 +4,31 @@ import utilities.GeometricShapeADT;
 
 public class PentagonalPrism extends GeometricShapeADT {
     private double side;
-    private double height;
+
+    public double getSide() {
+        return this.side;
+    }
+
+    public void setSide(double side) {
+        this.side = side;
+    }
 
     public PentagonalPrism() {
         super();
     }
 
     public PentagonalPrism(double side, double height) {
-        this.side = side;
-        this.height = height;
+        setSide(side);
+        setHeight(height);
     }
 
     @Override
     public double calcBaseArea() {
-        return (5 * Math.pow(this.side, 2) * Math.tan(54))/4.0;
+        return (5 * Math.pow(getSide(), 2) * Math.tan(54))/4.0;
     }
 
     @Override
     public double calcVolume() {
-        return calcBaseArea() * this.height;
+        return calcBaseArea() * getHeight();
     }
 }

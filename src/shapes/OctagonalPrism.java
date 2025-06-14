@@ -4,24 +4,31 @@ import utilities.GeometricShapeADT;
 
 public class OctagonalPrism extends GeometricShapeADT {
     private double side;
-    private double height;
+
+    public double getSide() {
+        return this.side;
+    }
+
+    public void setSide(double side) {
+        this.side = side;
+    }
 
     public OctagonalPrism() {
         super();
     }
 
     public OctagonalPrism(double side, double height) {
-        this.side = side;
-        this.height = height;
+        setSide(side);
+        setHeight(height);
     }
 
     @Override
     public double calcBaseArea () {
-        return 2.0 * (1 + Math.sqrt(2)) * Math.pow(this.side, 2);
+        return 2.0 * (1 + Math.sqrt(2)) * Math.pow(getSide(), 2);
     }
 
     @Override
     public double calcVolume() {
-        return calcBaseArea() * this.height;
+        return calcBaseArea() * getHeight();
     }
 }
