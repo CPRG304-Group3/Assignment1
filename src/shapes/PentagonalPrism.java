@@ -17,7 +17,7 @@ public class PentagonalPrism extends GeometricShapeADT {
         super();
     }
 
-    public PentagonalPrism(double side, double height) {
+    public PentagonalPrism(double height, double side) {
         setSide(side);
         setHeight(height);
     }

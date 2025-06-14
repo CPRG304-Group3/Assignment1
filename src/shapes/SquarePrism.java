@@ -17,7 +17,7 @@ public class SquarePrism extends GeometricShapeADT {
         super();
     }
 
-    public SquarePrism(double side, double height) {
+    public SquarePrism(double height, double side) {
         setSide(side);
         setHeight(height);
     }

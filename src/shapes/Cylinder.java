@@ -19,7 +19,7 @@ public class Cylinder extends GeometricShapeADT {
         super();
     }
 
-    public Cylinder(double radius, double height) {
+    public Cylinder(double height, double radius) {
         setRadius(radius);
         setHeight(height);
     }

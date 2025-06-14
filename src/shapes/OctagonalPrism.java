@@ -17,7 +17,7 @@ public class OctagonalPrism extends GeometricShapeADT {
         super();
     }
 
-    public OctagonalPrism(double side, double height) {
+    public OctagonalPrism(double height, double side) {
         setSide(side);
         setHeight(height);
     }

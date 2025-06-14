@@ -1,13 +1,21 @@
 package appDomain;
 
+import shapes.*;
+import utilities.GeometricShapeADT;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class AppDriver
 {
 
 	public static void main( String[] args )
 	{
-		String filename;
+		String filename = "";
 		char compareBy;
 		char sortingAlgorithm;
+		int arraySize;
 
 		if (args.length != 3){
 			System.out.println("You need to pass 3 arguments (T, F & S)");
@@ -62,6 +70,50 @@ public class AppDriver
 			default :
 				System.out.println("You have entered an unsupported argument for this program");
 				System.exit(4);
+		}
+
+
+		try (Scanner input = new Scanner(new File(filename))) {
+			if (input.hasNextInt()) {
+				arraySize = input.nextInt();
+				GeometricShapeADT[] geometricShape = new GeometricShapeADT[arraySize];
+				int counter = 0;
+				while (input.hasNextLine()) {
+					String shape = input.next();
+					double side1 = input.nextDouble();
+					double side2 = input.nextDouble();
+					switch (shape) {
+						case "Cone":
+							geometricShape[counter] = new Cone(side1, side2);
+							break;
+						case "Cylinder":
+							geometricShape[counter] = new Cylinder(side1, side2);
+							break;
+						case "Pyramid":
+							geometricShape[counter] = new Pyramid(side1, side2);
+							break;
+						case "OctagonalPrism":
+							geometricShape[counter] = new OctagonalPrism(side1, side2);
+							break;
+						case "PentagonalPrism":
+							geometricShape[counter] = new PentagonalPrism(side1, side2);
+							break;
+						case "SquarePrism":
+							geometricShape[counter] = new SquarePrism(side1, side2);
+							break;
+						case "TriangularPrism":
+							geometricShape[counter] = new TriangularPrism(side1, side2);
+							break;
+						default :
+							System.out.println("You have entered an unsupported argument for this program");
+							break;
+					}
+					counter++;
+				}
+			}
+		} catch (FileNotFoundException e){
+			System.out.println("File not found");
+			System.exit(5);
 		}
 
 	}

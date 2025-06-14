@@ -17,7 +17,7 @@ public class TriangularPrism extends GeometricShapeADT {
         super();
     }
 
-    public TriangularPrism(double side, double height) {
+    public TriangularPrism(double height, double side) {
         setSide(side);
         setHeight(height);
     }

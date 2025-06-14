@@ -17,7 +17,7 @@ public class Pyramid extends GeometricShapeADT {
         super();
     }
 
-    public Pyramid(double side, double height) {
+    public Pyramid(double height, double side) {
         setSide(side);
         setHeight(height);
     }
