@@ -1,23 +1,38 @@
 package utilities;
 
+import java.util.Comparator;
+
 public class SortingAlgorithms {
 
-    public void bubbleSort(GeometricShapeADT[] shapesArray) {
+    public static void bubbleSort(GeometricShapeADT[] shapesArray) {
         GeometricShapeADT temp;
 
-        for (int i = 1; i < shapesArray.length - 1; i++) {
+        for (int i = 1; i < shapesArray.length; i++) {
             for (int j = 0; j < shapesArray.length; j++) {
-                if (shapesArray[i].getHeight() < shapesArray[j].getHeight()) {
+                if (shapesArray[i].compareTo(shapesArray[j]) >= 0) {
                     temp = shapesArray[j];
                     shapesArray[j] = shapesArray[i];
                     shapesArray[i] = temp;
                 }
             }
         }
-
     }
 
-    public void insertionSort(GeometricShapeADT[] shapesArray) {
+    public static void bubbleSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator) {
+        GeometricShapeADT temp;
+
+        for (int i = 1; i < shapesArray.length; i++) {
+            for (int j = 0; j < shapesArray.length; j++) {
+                if (comparator.compare(shapesArray[j], shapesArray[i]) >= 0) {
+                    temp = shapesArray[j];
+                    shapesArray[j] = shapesArray[i];
+                    shapesArray[i] = temp;
+                }
+            }
+        }
+    }
+
+    public static void insertionSort(GeometricShapeADT[] shapesArray) {
         GeometricShapeADT key;
         int j;
 
@@ -25,7 +40,7 @@ public class SortingAlgorithms {
             key = shapesArray[i];
             j = i - 1;
 
-            while (j >= 0 && shapesArray[j].getHeight() > key.getHeight()) {
+            while (j >= 0 && shapesArray[j].getHeight() < key.getHeight()) {
                 shapesArray[j + 1] = shapesArray[j];
                 j--;
             }

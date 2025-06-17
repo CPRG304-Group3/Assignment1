@@ -31,4 +31,10 @@ public class PentagonalPrism extends GeometricShapeADT {
     public double calcVolume() {
         return calcBaseArea() * getHeight();
     }
+
+    @Override
+    public String toString() {
+        return ("Class is: " + getClass() + " With a height of: " +  getHeight() +
+                " With a volume of : " + calcVolume() + " With a base area of :" + calcBaseArea());
+    }
 }

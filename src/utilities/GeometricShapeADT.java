@@ -28,9 +28,4 @@ public abstract class GeometricShapeADT implements Comparable<GeometricShapeADT>
             return 0;
         }
     }
-
-    @Override
-    public String toString() {
-        return "GeometricShapeADT is of type : " + getClass() + " with a height of: " + this.getHeight();
-    }
 }

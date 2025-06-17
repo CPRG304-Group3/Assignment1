@@ -2,7 +2,11 @@ package appDomain;
 
 import shapes.*;
 import utilities.GeometricShapeADT;
+import utilities.GeometricShapeComparatorB;
+import utilities.SortingAlgorithms;
+
 import java.io.*;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class AppDriver
@@ -83,6 +87,10 @@ public class AppDriver
 				}
 				counter++;
 			}
+//			SortingAlgorithms.bubbleSort(allShapes);
+			Comparator<GeometricShapeADT> GeometricShapeComparatorB;
+			GeometricShapeComparatorB comparatorB = new GeometricShapeComparatorB();
+			SortingAlgorithms.bubbleSort(allShapes, comparatorB);
 			for (GeometricShapeADT shape: allShapes) {
 				System.out.println(shape);
 			}
