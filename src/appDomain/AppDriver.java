@@ -83,9 +83,11 @@ public class AppDriver
 				}
 				counter++;
 			}
-//			for (GeometricShapeADT shape: allShapes) {
-//				System.out.println(shape);
-//			}
+			for (GeometricShapeADT shape: allShapes) {
+				System.out.println(shape);
+			}
+
+
 		} catch (IOException e) {
 			System.out.println("Error reading file: " + e.getMessage());
 		}

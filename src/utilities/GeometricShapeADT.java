@@ -18,6 +18,7 @@ public abstract class GeometricShapeADT implements Comparable<GeometricShapeADT>
     public abstract double calcVolume();
     public abstract double calcBaseArea();
 
+    @Override
     public int compareTo(GeometricShapeADT o) {
         if  (this.getHeight() < o.getHeight()) {
             return -1;
@@ -26,5 +27,10 @@ public abstract class GeometricShapeADT implements Comparable<GeometricShapeADT>
         } else {
             return 0;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "GeometricShapeADT is of type : " + getClass() + " with a height of: " + this.getHeight();
     }
 }
