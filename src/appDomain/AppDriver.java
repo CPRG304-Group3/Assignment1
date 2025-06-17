@@ -17,8 +17,8 @@ public class AppDriver
 	{
 		// Initialization of variables for user argument values
 		String filename = "";
-		char compareBy;
-		char sortingAlgorithm;
+		char compareBy = 0;
+		char sortingAlgorithm = 0;
 
 		// Validate arguments passed with program needs
 		if (args.length != 3){
@@ -27,7 +27,7 @@ public class AppDriver
 		}
 
 		// Validate that values are passed with each argument
-		if (args[0].length() <= 3 || args[1].length() <= 2 || args[2].length() <= 2){
+		if (args[0].length() <= 2 || args[1].length() <= 2 || args[2].length() <= 2){
 			System.out.println("You need to pass data with each argument");
 			System.exit(1);
 		}
@@ -88,14 +88,48 @@ public class AppDriver
 				}
 				counter++;
 			}
-//			SortingAlgorithms.bubbleSort(allShapes);
-//			Comparator<GeometricShapeADT> GeometricShapeComparatorB;
-//			GeometricShapeComparatorV comparatorB = new GeometricShapeComparatorV();
-//			SortingAlgorithms.bubbleSort(allShapes, comparatorB);
-//			SortingAlgorithms.insertionSort(allShapes);
-//			GeometricShapeComparatorB comparator = new GeometricShapeComparatorB();
-//			GeometricShapeComparatorV comparatorV = new GeometricShapeComparatorV();
-//			SortingAlgorithms.insertionSort(allShapes, comparator);
+
+			if (compareBy == 'h' && sortingAlgorithm == 'b') {
+				SortingAlgorithms.bubbleSort(allShapes);
+			} else if (compareBy == 'h' && sortingAlgorithm == 's') {
+				// SortingAlgorithms.selectionSort(allShapes);
+			} else if (compareBy == 'h' && sortingAlgorithm == 'i') {
+				SortingAlgorithms.insertionSort(allShapes);
+			} else if (compareBy == 'h' && sortingAlgorithm == 'm') {
+				// SortingAlgorithms.mergeSort(allShapes);
+			} else if (compareBy == 'h' && sortingAlgorithm == 'q') {
+				// SortingAlgorithms.quickSort(allShapes);
+			} else if (compareBy == 'h' && sortingAlgorithm == 'z') {
+				// SortingAlgorithms.
+			} else if (compareBy == 'v' && sortingAlgorithm == 'b') {
+				SortingAlgorithms.bubbleSort(allShapes, new GeometricShapeComparatorV());
+			} else if (compareBy == 'v' && sortingAlgorithm == 's') {
+				// SortingAlgorithms.selectionSort(allShapes);
+			} else if (compareBy == 'v' && sortingAlgorithm == 'i') {
+				SortingAlgorithms.insertionSort(allShapes, new GeometricShapeComparatorV());
+			} else if (compareBy == 'v' && sortingAlgorithm == 'm') {
+				// SortingAlgorithms.mergeSort(allShapes);
+			} else if (compareBy == 'v' && sortingAlgorithm == 'q') {
+				// SortingAlgorithms.quickSort(allShapes);
+			} else if (compareBy == 'v' && sortingAlgorithm == 'z') {
+				// SortingAlgorithms.{
+			} else if (compareBy == 'b' && sortingAlgorithm == 'b') {
+				SortingAlgorithms.bubbleSort(allShapes, new GeometricShapeComparatorB());
+			} else if (compareBy == 'b' && sortingAlgorithm == 's') {
+				// SortingAlgorithms.selectionSort(allShapes);
+			} else if (compareBy == 'b' && sortingAlgorithm == 'i') {
+				SortingAlgorithms.insertionSort(allShapes, new GeometricShapeComparatorB());
+			} else if (compareBy == 'b' && sortingAlgorithm == 'm') {
+				// SortingAlgorithms.mergeSort(allShapes);
+			} else if (compareBy == 'b' && sortingAlgorithm == 'q') {
+				// SortingAlgorithms.quickSort(allShapes);
+			} else if (compareBy == 'b' && sortingAlgorithm == 'z') {
+				// SortingAlgorithms.{
+			} else {
+				System.out.println("Invalid argument");
+				System.exit(1);
+			}
+
 			for (GeometricShapeADT shape: allShapes) {
 				System.out.println(shape);
 			}
