@@ -1,0 +1,6 @@
+5
+Cone 200.5 10.35
+Cone 200.5 10.35
+Cylinder 55.10 87.50
+OctagonalPrism 150 500
+PentagonalPrism 102.5 307.3

@@ -89,9 +89,13 @@ public class AppDriver
 				counter++;
 			}
 //			SortingAlgorithms.bubbleSort(allShapes);
-			Comparator<GeometricShapeADT> GeometricShapeComparatorB;
-			GeometricShapeComparatorV comparatorB = new GeometricShapeComparatorV();
-			SortingAlgorithms.bubbleSort(allShapes, comparatorB);
+//			Comparator<GeometricShapeADT> GeometricShapeComparatorB;
+//			GeometricShapeComparatorV comparatorB = new GeometricShapeComparatorV();
+//			SortingAlgorithms.bubbleSort(allShapes, comparatorB);
+//			SortingAlgorithms.insertionSort(allShapes);
+//			GeometricShapeComparatorB comparator = new GeometricShapeComparatorB();
+//			GeometricShapeComparatorV comparatorV = new GeometricShapeComparatorV();
+//			SortingAlgorithms.insertionSort(allShapes, comparator);
 			for (GeometricShapeADT shape: allShapes) {
 				System.out.println(shape);
 			}

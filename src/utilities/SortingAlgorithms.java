@@ -4,7 +4,6 @@ import java.util.Comparator;
 
 public class SortingAlgorithms {
 
-    // Complete
     public static void bubbleSort(GeometricShapeADT[] shapesArray) {
         GeometricShapeADT temp;
 
@@ -19,7 +18,6 @@ public class SortingAlgorithms {
         }
     }
 
-    // Complete
     public static void bubbleSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator) {
         GeometricShapeADT temp;
 
@@ -42,7 +40,23 @@ public class SortingAlgorithms {
             key = shapesArray[i];
             j = i - 1;
 
-            while (j >= 0 && shapesArray[j].getHeight() < key.getHeight()) {
+            while (j >= 0 && shapesArray[j].compareTo(key) < 0) {
+                shapesArray[j + 1] = shapesArray[j];
+                j--;
+            }
+            shapesArray[j + 1] = key;
+        }
+    }
+
+    public  static void insertionSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator) {
+        GeometricShapeADT key;
+        int j;
+
+        for (int i = 1; i < shapesArray.length; i++) {
+            key = shapesArray[i];
+            j = i - 1;
+
+            while (j >= 0 && comparator.compare(shapesArray[j], key) < 0) {
                 shapesArray[j + 1] = shapesArray[j];
                 j--;
             }
