@@ -4,6 +4,7 @@ import java.util.Comparator;
 
 public class SortingAlgorithms {
 
+    // Complete
     public static void bubbleSort(GeometricShapeADT[] shapesArray) {
         GeometricShapeADT temp;
 
@@ -18,12 +19,13 @@ public class SortingAlgorithms {
         }
     }
 
+    // Complete
     public static void bubbleSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator) {
         GeometricShapeADT temp;
 
         for (int i = 1; i < shapesArray.length; i++) {
             for (int j = 0; j < shapesArray.length; j++) {
-                if (comparator.compare(shapesArray[j], shapesArray[i]) >= 0) {
+                if (comparator.compare(shapesArray[j], shapesArray[i]) < 0) {
                     temp = shapesArray[j];
                     shapesArray[j] = shapesArray[i];
                     shapesArray[i] = temp;

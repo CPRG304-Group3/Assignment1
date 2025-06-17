@@ -3,6 +3,7 @@ package appDomain;
 import shapes.*;
 import utilities.GeometricShapeADT;
 import utilities.GeometricShapeComparatorB;
+import utilities.GeometricShapeComparatorV;
 import utilities.SortingAlgorithms;
 
 import java.io.*;
@@ -89,7 +90,7 @@ public class AppDriver
 			}
 //			SortingAlgorithms.bubbleSort(allShapes);
 			Comparator<GeometricShapeADT> GeometricShapeComparatorB;
-			GeometricShapeComparatorB comparatorB = new GeometricShapeComparatorB();
+			GeometricShapeComparatorV comparatorB = new GeometricShapeComparatorV();
 			SortingAlgorithms.bubbleSort(allShapes, comparatorB);
 			for (GeometricShapeADT shape: allShapes) {
 				System.out.println(shape);
