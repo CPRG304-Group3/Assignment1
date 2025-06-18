@@ -108,7 +108,7 @@ public class AppDriver
 			} else if (compareBy == 'v' && sortingAlgorithm == 'i') {
 				SortingAlgorithms.insertionSort(allShapes, new GeometricShapeComparatorV());
 			} else if (compareBy == 'v' && sortingAlgorithm == 'm') {
-				// SortingAlgorithms.mergeSort(allShapes, new GeometricShapeComparatorV());
+				SortingAlgorithms.mergeSort(allShapes, new GeometricShapeComparatorV());
 			} else if (compareBy == 'v' && sortingAlgorithm == 'q') {
 				SortingAlgorithms.quickSort(allShapes, new GeometricShapeComparatorV(), 0,  allShapes.length - 1);
 			} else if (compareBy == 'v' && sortingAlgorithm == 'z') {
@@ -120,7 +120,7 @@ public class AppDriver
 			} else if (compareBy == 'b' && sortingAlgorithm == 'i') {
 				SortingAlgorithms.insertionSort(allShapes, new GeometricShapeComparatorB());
 			} else if (compareBy == 'b' && sortingAlgorithm == 'm') {
-				// SortingAlgorithms.mergeSort(allShapes, new GeometricShapeComparatorB());
+				SortingAlgorithms.mergeSort(allShapes, new GeometricShapeComparatorB());
 			} else if (compareBy == 'b' && sortingAlgorithm == 'q') {
 				SortingAlgorithms.quickSort(allShapes, new GeometricShapeComparatorB(), 0, allShapes.length - 1);
 			} else if (compareBy == 'b' && sortingAlgorithm == 'z') {

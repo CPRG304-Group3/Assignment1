@@ -175,6 +175,43 @@ public class SortingAlgorithms {
             }
         }
 
+        copyRemaining(shapesArray, left, right, i, j, k);
+    }
+
+    public static void mergeSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator) {
+        if (shapesArray.length < 2) {
+            return;
+        }
+        int mid = shapesArray.length / 2;
+
+        GeometricShapeADT[] left = Arrays.copyOfRange(shapesArray, 0, mid);
+        GeometricShapeADT[] right = Arrays.copyOfRange(shapesArray, mid, shapesArray.length);
+        mergeSort(left, comparator);
+        mergeSort(right, comparator);
+
+        merge(shapesArray, comparator, left, right);
+
+    }
+
+    private static void merge(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator, GeometricShapeADT[] left, GeometricShapeADT[] right) {
+        int i = 0, j = 0, k = 0;
+
+        while (i < left.length && j < right.length) {
+            if (comparator.compare(left[i], right[j]) >= 0) {
+                shapesArray[k] = left[i];
+                k++;
+                i++;
+            } else {
+                shapesArray[k] = right[j];
+                k++;
+                j++;
+            }
+        }
+
+        copyRemaining(shapesArray, left, right, i, j, k);
+    }
+
+    private static void copyRemaining(GeometricShapeADT[] shapesArray, GeometricShapeADT[] left, GeometricShapeADT[] right, int i, int j, int k) {
         while (i < left.length) {
             shapesArray[k] = left[i];
             k++;
