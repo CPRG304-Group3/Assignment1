@@ -1,5 +1,6 @@
 package utilities;
 
+import java.util.Arrays;
 import java.util.Comparator;
 
 public class SortingAlgorithms {
@@ -92,6 +93,14 @@ public class SortingAlgorithms {
         }
     }
 
+    public static void quickSort(GeometricShapeADT[] shapesArray, int low, int high) {
+        if (low < high) {
+            int pivot = partition(shapesArray, low, high);
+            quickSort(shapesArray, low, pivot - 1);
+            quickSort(shapesArray, pivot + 1, high);
+        }
+    }
+
     private static int partition(GeometricShapeADT[] shapesArray, int low, int high) {
         GeometricShapeADT pivot = shapesArray[high];
         int i = low - 1;
@@ -110,13 +119,14 @@ public class SortingAlgorithms {
         return i + 1;
     }
 
-    public static void quickSort(GeometricShapeADT[] shapesArray, int low, int high) {
+    public static void quickSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator, int low, int high) {
         if (low < high) {
-            int pivot = partition(shapesArray, low, high);
-            quickSort(shapesArray, low, pivot - 1);
-            quickSort(shapesArray, pivot + 1, high);
+            int pivot = partition(shapesArray, comparator, low, high);
+            quickSort(shapesArray, comparator, low, pivot - 1);
+            quickSort(shapesArray, comparator, pivot + 1, high);
         }
     }
+
     private static int partition(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator, int low, int high) {
         GeometricShapeADT pivot = shapesArray[high];
         int i = low - 1;
@@ -135,11 +145,46 @@ public class SortingAlgorithms {
         return i + 1;
     }
 
-    public static void quickSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator, int low, int high) {
-        if (low < high) {
-            int pivot = partition(shapesArray, comparator, low, high);
-            quickSort(shapesArray, comparator, low, pivot - 1);
-            quickSort(shapesArray, comparator, pivot + 1, high);
+    public static void mergeSort(GeometricShapeADT[] shapesArray) {
+        if (shapesArray.length < 2) {
+            return;
+        }
+        int mid = shapesArray.length / 2;
+
+        GeometricShapeADT[] left = Arrays.copyOfRange(shapesArray, 0, mid);
+        GeometricShapeADT[] right = Arrays.copyOfRange(shapesArray, mid, shapesArray.length);
+        mergeSort(left);
+        mergeSort(right);
+
+        merge(shapesArray, left, right);
+
+    }
+
+    private static void merge(GeometricShapeADT[] shapesArray, GeometricShapeADT[] left, GeometricShapeADT[] right) {
+        int i = 0, j = 0, k = 0;
+
+        while (i < left.length && j < right.length) {
+            if (left[i].compareTo(right[j]) >= 0) {
+                shapesArray[k] = left[i];
+                k++;
+                i++;
+            } else {
+                shapesArray[k] = right[j];
+                k++;
+                j++;
+            }
+        }
+
+        while (i < left.length) {
+            shapesArray[k] = left[i];
+            k++;
+            i++;
+        }
+
+        while (j < right.length) {
+            shapesArray[k] = right[j];
+            k++;
+            j++;
         }
     }
 

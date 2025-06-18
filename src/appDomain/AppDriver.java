@@ -96,11 +96,11 @@ public class AppDriver
 			} else if (compareBy == 'h' && sortingAlgorithm == 'i') {
 				SortingAlgorithms.insertionSort(allShapes);
 			} else if (compareBy == 'h' && sortingAlgorithm == 'm') {
-				// SortingAlgorithms.mergeSort(allShapes);
+				SortingAlgorithms.mergeSort(allShapes);
 			} else if (compareBy == 'h' && sortingAlgorithm == 'q') {
 				SortingAlgorithms.quickSort(allShapes, 0, allShapes.length - 1);
 			} else if (compareBy == 'h' && sortingAlgorithm == 'z') {
-				// SortingAlgorithms.
+				// SortingAlgorithms.heapSort(allShapes);
 			} else if (compareBy == 'v' && sortingAlgorithm == 'b') {
 				SortingAlgorithms.bubbleSort(allShapes, new GeometricShapeComparatorV());
 			} else if (compareBy == 'v' && sortingAlgorithm == 's') {
@@ -112,7 +112,7 @@ public class AppDriver
 			} else if (compareBy == 'v' && sortingAlgorithm == 'q') {
 				SortingAlgorithms.quickSort(allShapes, new GeometricShapeComparatorV(), 0,  allShapes.length - 1);
 			} else if (compareBy == 'v' && sortingAlgorithm == 'z') {
-				// SortingAlgorithms.
+				// SortingAlgorithms.heapSort(allShapes, new GeometricShapeComparatorV())
 			} else if (compareBy == 'b' && sortingAlgorithm == 'b') {
 				SortingAlgorithms.bubbleSort(allShapes, new GeometricShapeComparatorB());
 			} else if (compareBy == 'b' && sortingAlgorithm == 's') {
@@ -124,7 +124,7 @@ public class AppDriver
 			} else if (compareBy == 'b' && sortingAlgorithm == 'q') {
 				SortingAlgorithms.quickSort(allShapes, new GeometricShapeComparatorB(), 0, allShapes.length - 1);
 			} else if (compareBy == 'b' && sortingAlgorithm == 'z') {
-				// SortingAlgorithms.
+				// SortingAlgorithms.heapSort(allShapes, new GeometricShapeComparatorB());
 			} else {
 				System.out.println("Invalid argument");
 				System.exit(1);
