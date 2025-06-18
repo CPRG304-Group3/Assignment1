@@ -92,39 +92,39 @@ public class AppDriver
 			if (compareBy == 'h' && sortingAlgorithm == 'b') {
 				SortingAlgorithms.bubbleSort(allShapes);
 			} else if (compareBy == 'h' && sortingAlgorithm == 's') {
-				// SortingAlgorithms.selectionSort(allShapes);
+				SortingAlgorithms.selectionSort(allShapes);
 			} else if (compareBy == 'h' && sortingAlgorithm == 'i') {
 				SortingAlgorithms.insertionSort(allShapes);
 			} else if (compareBy == 'h' && sortingAlgorithm == 'm') {
 				// SortingAlgorithms.mergeSort(allShapes);
 			} else if (compareBy == 'h' && sortingAlgorithm == 'q') {
-				// SortingAlgorithms.quickSort(allShapes);
+				SortingAlgorithms.quickSort(allShapes, 0, allShapes.length - 1);
 			} else if (compareBy == 'h' && sortingAlgorithm == 'z') {
 				// SortingAlgorithms.
 			} else if (compareBy == 'v' && sortingAlgorithm == 'b') {
 				SortingAlgorithms.bubbleSort(allShapes, new GeometricShapeComparatorV());
 			} else if (compareBy == 'v' && sortingAlgorithm == 's') {
-				// SortingAlgorithms.selectionSort(allShapes);
+				SortingAlgorithms.selectionSort(allShapes, new GeometricShapeComparatorV());
 			} else if (compareBy == 'v' && sortingAlgorithm == 'i') {
 				SortingAlgorithms.insertionSort(allShapes, new GeometricShapeComparatorV());
 			} else if (compareBy == 'v' && sortingAlgorithm == 'm') {
-				// SortingAlgorithms.mergeSort(allShapes);
+				// SortingAlgorithms.mergeSort(allShapes, new GeometricShapeComparatorV());
 			} else if (compareBy == 'v' && sortingAlgorithm == 'q') {
-				// SortingAlgorithms.quickSort(allShapes);
+				SortingAlgorithms.quickSort(allShapes, new GeometricShapeComparatorV(), 0,  allShapes.length - 1);
 			} else if (compareBy == 'v' && sortingAlgorithm == 'z') {
-				// SortingAlgorithms.{
+				// SortingAlgorithms.
 			} else if (compareBy == 'b' && sortingAlgorithm == 'b') {
 				SortingAlgorithms.bubbleSort(allShapes, new GeometricShapeComparatorB());
 			} else if (compareBy == 'b' && sortingAlgorithm == 's') {
-				// SortingAlgorithms.selectionSort(allShapes);
+				SortingAlgorithms.selectionSort(allShapes, new GeometricShapeComparatorB());
 			} else if (compareBy == 'b' && sortingAlgorithm == 'i') {
 				SortingAlgorithms.insertionSort(allShapes, new GeometricShapeComparatorB());
 			} else if (compareBy == 'b' && sortingAlgorithm == 'm') {
-				// SortingAlgorithms.mergeSort(allShapes);
+				// SortingAlgorithms.mergeSort(allShapes, new GeometricShapeComparatorB());
 			} else if (compareBy == 'b' && sortingAlgorithm == 'q') {
-				// SortingAlgorithms.quickSort(allShapes);
+				SortingAlgorithms.quickSort(allShapes, new GeometricShapeComparatorB(), 0, allShapes.length - 1);
 			} else if (compareBy == 'b' && sortingAlgorithm == 'z') {
-				// SortingAlgorithms.{
+				// SortingAlgorithms.
 			} else {
 				System.out.println("Invalid argument");
 				System.exit(1);
