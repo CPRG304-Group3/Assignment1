@@ -46,20 +46,28 @@ public class AppDriver
 			}
 		}
 
+		// Try loading the shapes into an array.
 		try (BufferedReader input = new BufferedReader(new FileReader(filename))) {
 			String line;
-			int arraySize = 0;
 			int counter = 0;
 
+			// Shape array creation with initialization of size based on first line of file
+			// If file does not contain first line of an integer, a runtime error will occur.
 			GeometricShapeADT[] allShapes = new GeometricShapeADT[Integer.parseInt(input.readLine())];
 
+			// Read values per line while a line exists in the file and add to array based on shape in file
+			// Out of Memory Error (Java heap space) occurs when attempting to load the shapesBig.txt
+			String[] lineValues = null;
+			String specifiedShape;
+			double height = 0;
+			double side = 0;
 			while ((line = input.readLine()) != null) {
-				String[] lineValues = line.split(" ");
+				lineValues = line.split(" ");
 				if (lineValues.length == 3) {
-					String shape = lineValues[0].trim();
-					double height = Double.parseDouble(lineValues[1].trim());
-					double side = Double.parseDouble(lineValues[2].trim());
-					switch (shape) {
+					specifiedShape = lineValues[0];
+					height = Double.parseDouble(lineValues[1]);
+					side = Double.parseDouble(lineValues[2]);
+					switch (specifiedShape) {
 						case "Cone":
 							allShapes[counter] = new Cone(height, side);
 							break;
@@ -89,6 +97,8 @@ public class AppDriver
 				counter++;
 			}
 
+			// Once all shapes have been loaded into the array, sort based on given arguments
+			long start = System.nanoTime();
 			if (compareBy == 'h' && sortingAlgorithm == 'b') {
 				SortingAlgorithms.bubbleSort(allShapes);
 			} else if (compareBy == 'h' && sortingAlgorithm == 's') {
@@ -100,7 +110,7 @@ public class AppDriver
 			} else if (compareBy == 'h' && sortingAlgorithm == 'q') {
 				SortingAlgorithms.quickSort(allShapes, 0, allShapes.length - 1);
 			} else if (compareBy == 'h' && sortingAlgorithm == 'z') {
-				// SortingAlgorithms.heapSort(allShapes);
+				SortingAlgorithms.heapSort(allShapes);
 			} else if (compareBy == 'v' && sortingAlgorithm == 'b') {
 				SortingAlgorithms.bubbleSort(allShapes, new GeometricShapeComparatorV());
 			} else if (compareBy == 'v' && sortingAlgorithm == 's') {
@@ -126,13 +136,63 @@ public class AppDriver
 			} else if (compareBy == 'b' && sortingAlgorithm == 'z') {
 				// SortingAlgorithms.heapSort(allShapes, new GeometricShapeComparatorB());
 			} else {
-				System.out.println("Invalid argument");
+				System.out.println("Invalid sorting algorithm or comparison type provided");
 				System.exit(1);
 			}
+			long stop = System.nanoTime();
 
-			for (GeometricShapeADT shape: allShapes) {
-				System.out.println(shape);
+			for (int i = 0; i < allShapes.length; i += 1000) {
+				if (compareBy == 'h') {
+					if (i == 0) {
+						System.out.printf("First element is: %40s %30s %f\n", allShapes[i].getClass(),  "Height: ", allShapes[i].getHeight());
+
+					} else {
+						System.out.printf("%d-th element: %41s %30s %f\n", i, allShapes[i].getClass(),  "Height: ", allShapes[i].getHeight());
+					}
+				} else if (compareBy == 'v') {
+					if (i == 0) {
+						System.out.printf("First element is: %40s %30s %f\n", allShapes[i].getClass(),  "Volume: ", allShapes[i].calcVolume());
+					} else {
+						System.out.printf("%d-th element: %41s %30s %f\n", i, allShapes[i].getClass(),  "Volume: ", allShapes[i].calcVolume());
+					}
+				} else {
+					if (i == 0) {
+						System.out.printf("First element is: %40s %30s %f\n", allShapes[i].getClass(),  "Area: ", allShapes[i].calcBaseArea());
+					} else {
+						System.out.printf("%d-th element: %41s %30s %f\n", i, allShapes[i].getClass(),  "Area: ", allShapes[i].calcBaseArea());
+					}
+				}
 			}
+			switch (compareBy) {
+				case 'h' :
+					System.out.printf("Last element is: %41s %30s %f\n", allShapes[allShapes.length - 1].getClass(),
+							"Height: ", allShapes[allShapes.length - 1].getHeight());
+					break;
+				case 'v' :
+					System.out.printf("Last element is: %41s %30s %f\n", allShapes[allShapes.length - 1].getClass(),
+							"Volume: ", allShapes[allShapes.length - 1].calcVolume());
+					break;
+				case 'b' :
+					System.out.printf("Last element is: %41s %30s %f\n", allShapes[allShapes.length - 1].getClass(),
+							"Area: ", allShapes[allShapes.length - 1].calcBaseArea());
+					break;
+				default :
+					System.out.println("Invalid comparison type provided");
+					break;
+			}
+
+			switch (sortingAlgorithm) {
+				case 'b':
+					System.out.print("Bubble Sort run time was: ");
+					break;
+				case 'i':
+					System.out.print("Insertion Sort run time was: ");
+					break;
+				default:
+					System.out.println("Invalid sorting algorithm or comparison type provided");
+					break;
+			}
+			System.out.println((stop - start)/1000000 + " milliseconds");
 
 
 		} catch (IOException e) {

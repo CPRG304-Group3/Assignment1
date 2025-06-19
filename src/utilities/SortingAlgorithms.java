@@ -225,4 +225,8 @@ public class SortingAlgorithms {
         }
     }
 
+    public static void heapSort(GeometricShapeADT[] shapesArray) {
+
+    }
+
 }
