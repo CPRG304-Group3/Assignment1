@@ -122,7 +122,7 @@ public class AppDriver
 			} else if (compareBy == 'v' && sortingAlgorithm == 'q') {
 				SortingAlgorithms.quickSort(allShapes, new GeometricShapeComparatorV(), 0,  allShapes.length - 1);
 			} else if (compareBy == 'v' && sortingAlgorithm == 'z') {
-				// SortingAlgorithms.heapSort(allShapes, new GeometricShapeComparatorV())
+				SortingAlgorithms.heapSort(allShapes, new GeometricShapeComparatorV());
 			} else if (compareBy == 'b' && sortingAlgorithm == 'b') {
 				SortingAlgorithms.bubbleSort(allShapes, new GeometricShapeComparatorB());
 			} else if (compareBy == 'b' && sortingAlgorithm == 's') {
@@ -134,7 +134,7 @@ public class AppDriver
 			} else if (compareBy == 'b' && sortingAlgorithm == 'q') {
 				SortingAlgorithms.quickSort(allShapes, new GeometricShapeComparatorB(), 0, allShapes.length - 1);
 			} else if (compareBy == 'b' && sortingAlgorithm == 'z') {
-				// SortingAlgorithms.heapSort(allShapes, new GeometricShapeComparatorB());
+				SortingAlgorithms.heapSort(allShapes, new GeometricShapeComparatorB());
 			} else {
 				System.out.println("Invalid sorting algorithm or comparison type provided");
 				System.exit(1);
@@ -187,6 +187,18 @@ public class AppDriver
 					break;
 				case 'i':
 					System.out.print("Insertion Sort run time was: ");
+					break;
+				case 's':
+					System.out.print("Selection Sort run time was: ");
+					break;
+				case 'q':
+					System.out.print("Quick Sort run time was: ");
+					break;
+				case 'm':
+					System.out.print("Merge Sort run time was: ");
+					break;
+				case 'z':
+					System.out.print("Chosen (Heap) Sort run time was: ");
 					break;
 				default:
 					System.out.println("Invalid sorting algorithm or comparison type provided");

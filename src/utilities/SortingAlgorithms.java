@@ -226,7 +226,77 @@ public class SortingAlgorithms {
     }
 
     public static void heapSort(GeometricShapeADT[] shapesArray) {
+        int size = shapesArray.length;
 
+        for (int i = size / 2 - 1; i >= 0; i--) {
+            minHeap(shapesArray, size, i);
+        }
+
+        for (int i = size - 1; i > 0; i--) {
+            GeometricShapeADT temp = shapesArray[0];
+            shapesArray[0] = shapesArray[i];
+            shapesArray[i] = temp;
+            minHeap(shapesArray, i, 0);
+        }
+    }
+
+    private static void minHeap(GeometricShapeADT[] shapesArray, int length, int rootLoc) {
+        int smallest = rootLoc;
+
+        int left = 2 * rootLoc + 1;
+        int right = 2 * rootLoc + 2;
+
+        if (left < length && shapesArray[left].compareTo(shapesArray[smallest]) < 0) {
+            smallest = left;
+        }
+
+        if (right < length && shapesArray[right].compareTo(shapesArray[smallest]) < 0) {
+            smallest = right;
+        }
+
+        if (smallest != rootLoc) {
+            GeometricShapeADT temp = shapesArray[rootLoc];
+            shapesArray[rootLoc] = shapesArray[smallest];
+            shapesArray[smallest] = temp;
+            minHeap(shapesArray, length, smallest);
+        }
+    }
+
+    public static void heapSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator) {
+        int size = shapesArray.length;
+
+        for (int i = size / 2 - 1; i >= 0; i--) {
+            minHeap(shapesArray, comparator, size, i);
+        }
+
+        for (int i = size - 1; i > 0; i--) {
+            GeometricShapeADT temp = shapesArray[0];
+            shapesArray[0] = shapesArray[i];
+            shapesArray[i] = temp;
+            minHeap(shapesArray, comparator, i, 0);
+        }
+    }
+
+    private static void minHeap(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator, int length, int rootLoc) {
+        int smallest = rootLoc;
+
+        int left = 2 * rootLoc + 1;
+        int right = 2 * rootLoc + 2;
+
+        if (left < length && comparator.compare(shapesArray[left], shapesArray[smallest]) < 0) {
+            smallest = left;
+        }
+
+        if (right < length && comparator.compare(shapesArray[right], shapesArray[smallest]) < 0) {
+            smallest = right;
+        }
+
+        if (smallest != rootLoc) {
+            GeometricShapeADT temp = shapesArray[rootLoc];
+            shapesArray[rootLoc] = shapesArray[smallest];
+            shapesArray[smallest] = temp;
+            minHeap(shapesArray, comparator, length, smallest);
+        }
     }
 
 }
