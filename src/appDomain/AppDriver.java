@@ -1,3 +1,13 @@
+/**
+ * Program: Assignment 1 - Sort Shapes
+ * Description: Program is a sorting program that sorts a list of shapes given by user through the command line
+ * 				which expects 3 arguments to decide which shapes to load into the program and then later sort.
+ * 				Command line arguments include one of each: file, comparison type and sorting algorithm.
+ * 				Sorting algorithm is chosen from utilities based on one of the arguments with either comparable
+ * 				that is implemented in each shape or a Comparator class.
+ * Author: Chioma Eme, Merilyne Mbong
+ * Date: June 20th, 2025
+ */
 package appDomain;
 
 import shapes.*;
@@ -7,8 +17,6 @@ import utilities.GeometricShapeComparatorV;
 import utilities.SortingAlgorithms;
 
 import java.io.*;
-import java.util.Comparator;
-import java.util.Scanner;
 
 public class AppDriver
 {
@@ -141,11 +149,11 @@ public class AppDriver
 			}
 			long stop = System.nanoTime();
 
+			// Prints out the first and every thousandth shape position once sorted
 			for (int i = 0; i < allShapes.length; i += 1000) {
 				if (compareBy == 'h') {
 					if (i == 0) {
 						System.out.printf("First element is: %40s %30s %f\n", allShapes[i].getClass(),  "Height: ", allShapes[i].getHeight());
-
 					} else {
 						System.out.printf("%d-th element: %41s %30s %f\n", i, allShapes[i].getClass(),  "Height: ", allShapes[i].getHeight());
 					}
@@ -163,6 +171,8 @@ public class AppDriver
 					}
 				}
 			}
+
+			// Based on compare type, the last element is printed
 			switch (compareBy) {
 				case 'h' :
 					System.out.printf("Last element is: %41s %30s %f\n", allShapes[allShapes.length - 1].getClass(),
@@ -181,6 +191,7 @@ public class AppDriver
 					break;
 			}
 
+			// Based on sorting algorithm chosen, prints the run time taken to for sorting to happen in milliseconds.
 			switch (sortingAlgorithm) {
 				case 'b':
 					System.out.print("Bubble Sort run time was: ");
@@ -205,7 +216,6 @@ public class AppDriver
 					break;
 			}
 			System.out.println((stop - start)/1000000 + " milliseconds");
-
 
 		} catch (IOException e) {
 			System.out.println("Error reading file: " + e.getMessage());

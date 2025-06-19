@@ -188,7 +188,6 @@ public class SortingAlgorithms {
         GeometricShapeADT[] right = Arrays.copyOfRange(shapesArray, mid, shapesArray.length);
         mergeSort(left, comparator);
         mergeSort(right, comparator);
-
         merge(shapesArray, comparator, left, right);
 
     }
