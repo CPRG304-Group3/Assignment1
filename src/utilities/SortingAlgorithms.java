@@ -3,8 +3,15 @@ package utilities;
 import java.util.Arrays;
 import java.util.Comparator;
 
+/**
+ * This class contains all the Sorting algorithms implemented for the program
+ */
 public class SortingAlgorithms {
 
+    /**
+     * This method implements the bubble sort algorithm in descending order based on the comparable
+     * @param shapesArray is the array of shapes to be sorted
+     */
     public static void bubbleSort(GeometricShapeADT[] shapesArray) {
         GeometricShapeADT temp;
 
@@ -19,6 +26,11 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     * This method implements the bubble sort algorithm in descending order based on the comparator
+     * @param shapesArray is the array of shapes to be sorted
+     * @param comparator is the comparator used to compare each shape
+     */
     public static void bubbleSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator) {
         GeometricShapeADT temp;
 
@@ -33,6 +45,10 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     * This method implements the insertion sort algorithm in descending order based on the comparable
+     * @param shapesArray is the array of shapes to be sorted
+     */
     public static void insertionSort(GeometricShapeADT[] shapesArray) {
         GeometricShapeADT key;
         int j;
@@ -49,6 +65,11 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     * This method implements the insertion sort algorithm in descending order based on the comparator
+     * @param shapesArray is the array of shapes to be sorted
+     * @param comparator is the comparator used to compare each shape
+     */
     public  static void insertionSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator) {
         GeometricShapeADT key;
         int j;
@@ -65,6 +86,10 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     * This method implements the selection sort algorithm in descending order based on the comparable
+     * @param shapesArray is the array of shapes to be sorted
+     */
     public static void selectionSort(GeometricShapeADT[] shapesArray) {
         for (int i = 0; i < shapesArray.length; i++) {
             int min = i;
@@ -79,6 +104,11 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     * This method implements the selection sort algorithm in descending order based on the comparator
+     * @param shapesArray is the array of shapes to be sorted
+     * @param comparator is the comparator used to compare each shape
+     */
     public static void selectionSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator) {
         for (int i = 0; i < shapesArray.length; i++) {
             int min = i;
@@ -93,6 +123,12 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     *
+     * @param shapesArray
+     * @param low
+     * @param high
+     */
     public static void quickSort(GeometricShapeADT[] shapesArray, int low, int high) {
         if (low < high) {
             int pivot = partition(shapesArray, low, high);
@@ -101,6 +137,13 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     *
+     * @param shapesArray
+     * @param low
+     * @param high
+     * @return
+     */
     private static int partition(GeometricShapeADT[] shapesArray, int low, int high) {
         GeometricShapeADT pivot = shapesArray[high];
         int i = low - 1;
@@ -119,6 +162,13 @@ public class SortingAlgorithms {
         return i + 1;
     }
 
+    /**
+     *
+     * @param shapesArray
+     * @param comparator
+     * @param low
+     * @param high
+     */
     public static void quickSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator, int low, int high) {
         if (low < high) {
             int pivot = partition(shapesArray, comparator, low, high);
@@ -127,6 +177,14 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     *
+     * @param shapesArray
+     * @param comparator
+     * @param low
+     * @param high
+     * @return
+     */
     private static int partition(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator, int low, int high) {
         GeometricShapeADT pivot = shapesArray[high];
         int i = low - 1;
@@ -145,6 +203,10 @@ public class SortingAlgorithms {
         return i + 1;
     }
 
+    /**
+     *
+     * @param shapesArray
+     */
     public static void mergeSort(GeometricShapeADT[] shapesArray) {
         if (shapesArray.length < 2) {
             return;
@@ -160,6 +222,12 @@ public class SortingAlgorithms {
 
     }
 
+    /**
+     *
+     * @param shapesArray
+     * @param left
+     * @param right
+     */
     private static void merge(GeometricShapeADT[] shapesArray, GeometricShapeADT[] left, GeometricShapeADT[] right) {
         int i = 0, j = 0, k = 0;
 
@@ -178,6 +246,11 @@ public class SortingAlgorithms {
         copyRemaining(shapesArray, left, right, i, j, k);
     }
 
+    /**
+     *
+     * @param shapesArray
+     * @param comparator
+     */
     public static void mergeSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator) {
         if (shapesArray.length < 2) {
             return;
@@ -192,6 +265,13 @@ public class SortingAlgorithms {
 
     }
 
+    /**
+     *
+     * @param shapesArray
+     * @param comparator
+     * @param left
+     * @param right
+     */
     private static void merge(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator, GeometricShapeADT[] left, GeometricShapeADT[] right) {
         int i = 0, j = 0, k = 0;
 
@@ -210,6 +290,15 @@ public class SortingAlgorithms {
         copyRemaining(shapesArray, left, right, i, j, k);
     }
 
+    /**
+     *
+     * @param shapesArray
+     * @param left
+     * @param right
+     * @param i
+     * @param j
+     * @param k
+     */
     private static void copyRemaining(GeometricShapeADT[] shapesArray, GeometricShapeADT[] left, GeometricShapeADT[] right, int i, int j, int k) {
         while (i < left.length) {
             shapesArray[k] = left[i];
@@ -224,6 +313,10 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     *
+     * @param shapesArray
+     */
     public static void heapSort(GeometricShapeADT[] shapesArray) {
         int size = shapesArray.length;
 
@@ -239,6 +332,12 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     *
+     * @param shapesArray
+     * @param length
+     * @param rootLoc
+     */
     private static void minHeap(GeometricShapeADT[] shapesArray, int length, int rootLoc) {
         int smallest = rootLoc;
 
@@ -261,6 +360,11 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     *
+     * @param shapesArray
+     * @param comparator
+     */
     public static void heapSort(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator) {
         int size = shapesArray.length;
 
@@ -276,6 +380,13 @@ public class SortingAlgorithms {
         }
     }
 
+    /**
+     * 
+     * @param shapesArray
+     * @param comparator
+     * @param length
+     * @param rootLoc
+     */
     private static void minHeap(GeometricShapeADT[] shapesArray, Comparator<GeometricShapeADT> comparator, int length, int rootLoc) {
         int smallest = rootLoc;
 

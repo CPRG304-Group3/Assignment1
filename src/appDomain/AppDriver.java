@@ -18,9 +18,17 @@ import utilities.SortingAlgorithms;
 
 import java.io.*;
 
+/**
+ * This class is the entry point for the program where the main method is defined and objects are created for running
+ * of the sorting algorithm.
+ */
 public class AppDriver
 {
 
+	/**
+	 * Main method that accepts arguments which program runs based of.
+	 * @param args arguments needed for the program to run.
+	 */
 	public static void main( String[] args )
 	{
 		// Initialization of variables for user argument values
